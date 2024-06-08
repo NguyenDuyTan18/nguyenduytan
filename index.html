@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>nguyenduytan</title>
+        <title>The band</title>
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="./assets/themify-icons-font/themify-icons.css">
     </head>
@@ -13,19 +13,19 @@
             <!-- begin: nav -->
             <div id="header">
                 <ul id="nav">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Band</a></li>
-                    <li><a href="">Tour</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#band">Band</a></li>
+                    <li><a href="#Tour">Tour</a></li>
+                    <li><a href="#Contact">Contact</a></li>
                     <li>
                         <a href="">
                             More
                             <i class="nav-down ti-angle-down"></i>
                         </a>
                         <ul class="subnav">
-                            <li><a href="">Merchandise</a></li>
-                            <li><a href="">Extras</a></li>
-                            <li><a href="">Media</a></li>
+                            <li><a href="#">Merchandise</a></li>
+                            <li><a href="#">Extras</a></li>
+                            <li><a href="#">Media</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,7 +47,7 @@
 
             <div id="content">
                 <!-- About content -->
-                <div class="content-section">
+                <div id="band" class=" content-section">
                     <h2 class="section-heading">THE BAND</h2>
                     <p class="section-sub-heading">We love music</p>
                     <p class="about-text">
@@ -74,7 +74,7 @@
                 </div>
 
                 <!-- Tour content -->
-                <div class="Tour-section">
+                <div id="Tour" class="Tour-section">
                     <div class="content-section">
                         <h2 class="section-heading text-white">TOUR DATES</h2>
                         <p class="section-sub-heading text-white">Remember to book your tickets!</p>
@@ -124,7 +124,7 @@
 
                 
                 <!-- Contact content -->
-                <div class="content-section">
+                <div id="Contact" class="content-section">
                     <h2 class="section-heading">CONTACT</h2>
                     <p class="section-sub-heading">Fan? Drop a note!</p>
                     
@@ -140,18 +140,18 @@
                             <form action="">
                                 <div class="row ">
                                     <div class="col col-half">
-                                        <input type="text" name="text" placeholder="Name" required class="form-control">
+                                        <input type="text" name="" placeholder="Name" required id="contact-name" class="form-control">
                                     </div>
     
                                     <div class="col col-half">
-                                        <input type="email" name="text" placeholder="Email" required class="form-control">
+                                        <input type="email" name="" placeholder="Email" required id="contact-email" class="form-control">
                                     </div>
                                     
                                 </div>
 
                                 <div class="row mt-8">
                                     <div class="col col-full">
-                                            <input type="text" name="text" placeholder="Message" required class="form-control">
+                                            <input type="text" name="" placeholder="Message" required id="contact-message" class="form-control">
                                      </div>
                                 </div>
 
@@ -184,60 +184,72 @@
                 </div>
             </div>
 
-            <div class="modal js-modal open">
-                <div class="modal-container">
-                    <div class="modal-close js-modal-close">
-                        <i class="ti-close"></i>
-                    </div>
-
-                    <header class="modal-header">
-                        <i class="modal-heading-icon ti-bag"></i>
-                        Tickets
-                    </header>
-
-                    <div class="modal-body">
-                        <label for="ticket-quantity" class="modal-label">
-                            <i class="ti-shopping-cart"></i>
-                            Tickets, $15 per person
-                        </label>
-                        <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
-                    
-                        <label for="ticket-email" class="modal-label">
-                            <i class="ti-user"></i>
-                            Send to
-                        </label>
-                        <input id="ticket-email" type="email" class="modal-input" placeholder="Enter email...">
-                    
-                        <button id="buy-tickets">
-                            Pay
-                            <i class="ti-check"></i>
-                        </button>
-                    </div>
-
-                    <footer class="modal-footer">
-                       <p class="modal-help">Need <a href="">help?</a></p>
-                    </footer>
+         <div class="modal js-modal">
+            <div class="modal-container js-modal-container">
+                <div class="modal-close js-modal-close">
+                    <i class="ti-close"></i>
                 </div>
+
+                <header class="modal-header">
+                    <i class="modal-heading-icon ti-bag"></i>
+                    Tickets
+                </header>
+
+                <div class="modal-body">
+                    <label for="ticket-quantity" class="modal-label">
+                        <i class="ti-shopping-cart"></i>
+                        Tickets, $15 per person
+                    </label>
+                    <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+
+                    <label for="ticket-email" class="modal-label">
+                        <i class="ti-user"></i>
+                        Send to
+                    </label>
+                    <input id="ticket-email" type="email" class="modal-input" placeholder="Enter email...">
+
+                    <button id="buy-tickets">
+                        Pay <i class="ti-check"></i>
+                    </button>
+                </div>
+
+                <footer class="modal-footer">
+                    <p class="modal-help">Need <a href="#">help?</a></p>
+                </footer>
             </div>
-        </div>
-        <script>
+         </div>
+
+         <script>
             const buyBtns = document.querySelectorAll('.js-buy-ticket')
+            const modalContainer = document.querySelector('.js-modal-container')
             const modal = document.querySelector('.js-modal')
             const modalClose = document.querySelector('.js-modal-close')
 
-            function ShowBuyTicket() {
-              modal.classList.add('open')
+            // tat hop thoai
+            function hideBuyTickets() {
+                modal.classList.remove('open')
             }
 
-            function hideBuyTicket() {
-              modal.classList.remove('open')
+
+            // mo hop thoai
+            function showBuyTickets() {
+                modal.classList.add('open')
             }
 
-            for( const buyBtn of buyBtns) {
-                buyBtn.addEventListener('click', ShowBuyTicket)
+            for (const buyBtn of buyBtns) {
+                buyBtn.addEventListener('click', showBuyTickets)
             }
 
-            modalClose.addEventListener('click', hideBuyTicket)
-        </script>
+            // nhan x va tat hop thoai
+            modalClose.addEventListener('click', hideBuyTickets)
+
+            // nhan tat ben ngoai hop 
+            modal.addEventListener('click',  hideBuyTickets)
+
+            // ngan chan tat trong hop thoai
+            modalContainer.addEventListener('click', function (event){
+                event.stopPropagation()
+            })
+         </script>
     </body>
 </html>
