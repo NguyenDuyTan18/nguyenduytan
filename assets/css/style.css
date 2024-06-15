@@ -159,16 +159,16 @@
    position: relative;
    margin-top: 46.5px;
    padding-top: 50%;
-   
+   background: url(../img/slider/chicago.jpg) top center / cover no-repeat;
 }
 
-.slider-imgg {
+/* .slider-imgg {
     margin-top: -507px;
 }
 
 .slider-img {
     width: 100%;
-}
+} */
 
 #slider .text-content{
    position:absolute;
